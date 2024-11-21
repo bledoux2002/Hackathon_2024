@@ -181,7 +181,10 @@ def extract_shot_loc(curves, rects):
 
     # lower_threshold = 8
     upper_threshold = 100
+    goal_pt_count = 5
+    save_pt_count = 9
     # Process curves to find shot locations
+    
     for curve in curves:
         if len(curve['pts']) > upper_threshold or len(curve['pts']) == 6:
             continue
@@ -207,12 +210,11 @@ def extract_shot_loc(curves, rects):
 
             rect = Rectangle([x0, y0], x_length, y_length)
             
-            # Determine if shot was on or off target
-            target = "off_target"
-            if rect.centroid[0] > 85 and rect.centroid[0] < 510 and rect.centroid[1] > 600 and rect.centroid[1] < 740:
-                target = "on_target"
+            # Determine if shot was on or off target, saved or went in
+            target = "on_target" if rect.centroid[0] > 85 and rect.centroid[0] < 510 and rect.centroid[1] > 600 and rect.centroid[1] < 740 else "off_target"
+            goal = True if len(curve['pts']) == 5 else False
 
-            centroids.append((rect.centroid, target))
+            centroids.append((rect.centroid, target, goal))
 
 
 
@@ -235,12 +237,11 @@ def extract_shot_loc(curves, rects):
                 max_x = x1
                 max_coords = [x1, y1]
 
-            # Determine if shot was on or off target
-            target = "off_target"
-            if rect.centroid[0] > 85 and rect.centroid[0] < 510 and rect.centroid[1] > 600 and rect.centroid[1] < 740:
-                target = "on_target"
+            # Determine if shot was on or off target (might be useless)
+            target = "on_target" if rect.centroid[0] > 85 and rect.centroid[0] < 510 and rect.centroid[1] > 600 and rect.centroid[1] < 740 else "off_target"
+            goal = True if len(curve['pts']) == 5 else False
 
-            centroids.append((rect.centroid, target))
+            centroids.append((rect.centroid, target, goal))
     
     return centroids
 
@@ -349,6 +350,7 @@ def parse_shot_locs(src_folder: str, team: str):
                         "length": [centroid[0][1] for centroid in team_1_centroids],
                         "width": [centroid[0][0] for centroid in team_1_centroids],
                         "target": [centroid[1] for centroid in team_1_centroids],
+                        "goal": [centroid[2] for centroid in team_1_centroids],
                     }
                 )
                 # Translate shot positions to normalized coordinates
@@ -390,6 +392,7 @@ def parse_shot_locs(src_folder: str, team: str):
                     "length": [centroid[0][1] for centroid in team_2_centroids],
                     "width": [centroid[0][0] for centroid in team_2_centroids],
                     "target": [centroid[1] for centroid in team_2_centroids],
+                    "goal": [centroid[2] for centroid in team_2_centroids],
                 }
             )
             # Translate shot positions to normalized coordinates
@@ -418,57 +421,58 @@ def parse_shot_locs(src_folder: str, team: str):
     return final
 
 def plot_shots(data):
-    home_team = teamname
-    teams = data['team_name'].unique()
-    opponents = [team for team in teams if team != home_team]
-    x = np.array(data['width'])
-    y = np.array(data['length'])
-    target = np.array(data['target'])
+  home_team = "Northwestern Wildcats"
+  teams = data['team_name'].unique()
+  opponents = [team for team in teams if team != home_team]
+  x = np.array(data['width'])
+  y = np.array(data['length'])
+  target = np.array(data['target'])
+  goal = np.array(data['goal'])
 
-    goalX = [85, 85, 510, 510]
-    goalY = [600, 740, 740, 600]
+  goalX = [85, 85, 510, 510]
+  goalY = [600, 740, 740, 600]
 
-    fig, axes = plt.subplots(len(opponents), 2, figsize=(13, len(opponents) * 3))
+  fig, axes = plt.subplots(len(opponents), 2, figsize=(13, len(opponents) * 3))
 
-    for i in  range (len(axes)):
-        # Home mask = only shots taken by teams on opposition goal
-        home_mask = data['team_name'] == home_team
-        opp_mask = data['opponent_team_name'] == opponents[i]
-        x_home = x[home_mask & opp_mask]
-        y_home = y[home_mask & opp_mask]
-        target_home = target[home_mask & opp_mask]
+  for i in range (len(axes)):
+      # Home mask = only shots taken by teams on opposition goal
+      home_mask = data['team_name'] == home_team
+      opp_mask = data['opponent_team_name'] == opponents[i]
+      x_home = x[home_mask & opp_mask]
+      y_home = y[home_mask & opp_mask]
+      target_home = target[home_mask & opp_mask]
+      goal_home = goal[home_mask & opp_mask]
 
-        for j in range(len(x_home)):
-            marker, color = ('o', 'b') if target_home[j] == "off_target" else ('s', 'r')
-            axes[i, 0].scatter(x_home[j], y_home[j], marker=marker, color=color)
-        axes[i, 0].set_title(f'{home_team} shots on {opponents[i]}')
-        
-        axes[i, 0].plot(goalX, goalY, color='purple')
-        axes[i, 0].set_xlim(0, 595)
-        axes[i, 0].set_ylim(600, 800)
-        axes[i, 0].set_aspect('equal', adjustable='box')
+      for j in range(len(x_home)):
+          marker = 'D' if goal_home[j] else 'o'
+          color = 'b' if target_home[j] == "off_target" else 'r'
+          axes[i, 0].scatter(x_home[j], y_home[j], marker=marker, color=color)
+      axes[i, 0].set_title(f'{home_team} shots on {opponents[i]}')
+      
+      axes[i, 0].plot(goalX, goalY, color='purple')
+      axes[i, 0].set_xlim(0, 595)
+      axes[i, 0].set_ylim(600, 800)
+      axes[i, 0].set_aspect('equal', adjustable='box')
 
-        # Opp mask = only shots taken by the opponents on home goal
-        opp_mask = data['team_name'] == opponents[i]
-        home_mask = data['opponent_team_name'] == home_team
-        x_opp = x[opp_mask & home_mask]
-        y_opp = y[opp_mask & home_mask]
-        target_opp = target[opp_mask & home_mask]
+      # Opp mask = only shots taken by the opponents on home goal
+      opp_mask = data['team_name'] == opponents[i]
+      home_mask = data['opponent_team_name'] == home_team
+      x_opp = x[opp_mask & home_mask]
+      y_opp = y[opp_mask & home_mask]
+      target_opp = target[opp_mask & home_mask]
+      goal_opp = goal[opp_mask & home_mask]
 
-        for j in range(len(x_opp)):
-            marker, color = ('o', 'b') if target_opp[j] == "off_target" else ('s', 'r')
-            axes[i, 1].scatter(x_opp[j], y_opp[j], marker=marker, color=color)
-        axes[i, 1].set_title(f'{opponents[i]} shots on {home_team}')
-        
-        axes[i, 1].plot(goalX, goalY, color='purple')
-        axes[i, 1].set_xlim(0, 595)
-        axes[i, 1].set_ylim(600, 800)
-        axes[i, 1].set_aspect('equal', adjustable='box')
-
-    #fig.set_size_inches(12, len(teams))
-    #plt.tight_layout()
-    st.write(fig)
-    #plt.show()
+      for j in range(len(x_opp)):
+          marker = 'D' if goal_opp[j] else 'o'
+          color = 'b' if target_opp[j] == "off_target" else 'r'
+          axes[i, 1].scatter(x_opp[j], y_opp[j], marker=marker, color=color)
+      axes[i, 1].set_title(f'{opponents[i]} shots on {home_team}')
+      
+      axes[i, 1].plot(goalX, goalY, color='purple')
+      axes[i, 1].set_xlim(0, 595)
+      axes[i, 1].set_ylim(600, 800)
+      axes[i, 1].set_aspect('equal', adjustable='box')
+  st.write(fig)
 
 def plot_kde(data):
     x = np.array(data['width'])
@@ -515,7 +519,6 @@ if __name__ == "__main__":
       data = data.round(1)
       data = data.drop_duplicates().reset_index(drop=True)
       data.shape
-
 
       plot_shots(data)
       plot_kde(data)
