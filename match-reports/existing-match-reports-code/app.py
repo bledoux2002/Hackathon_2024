@@ -77,15 +77,15 @@ if __name__ == "__main__":
     is_all_shots = st.sidebar.toggle("Only Goals / All Shots")
 
     # GETTING THE DATA
-    data = pd.read_csv("./master.csv") # WITHOUT DOCKER
-    #data = pd.read_csv("match-reports/existing-match-reports-code/master.csv") # WITH DOCKER
+    #data = pd.read_csv("./master.csv") # WITHOUT DOCKER
+    data = pd.read_csv("match-reports/existing-match-reports-code/master.csv") # WITH DOCKER
     data = data.iloc[:, 1:]
     data = data.round(1)
     data = data.drop_duplicates().reset_index(drop=True)
 
     # GETTING THE DATA
-    data_field = pd.read_csv("./master_field.csv") # WITHOUT DOCKER
-    #data_field = pd.read_csv("match-reports/existing-match-reports-code/master.csv") # WITH DOCKER
+    #data_field = pd.read_csv("./master_field.csv") # WITHOUT DOCKER
+    data_field = pd.read_csv("match-reports/existing-match-reports-code/master_field.csv") # WITH DOCKER
     data_field = data_field.iloc[:, 1:]
     data_field = data_field.round(1)
     data_field = data_field.drop_duplicates().reset_index(drop=True)
