@@ -225,7 +225,7 @@ if __name__ == "__main__":
         st.write(goal_heatmap(global_opportune, title=f'{selected_home_team} opportune'))
 
     # IF A SECOND TEAM IS PICKED TO ANALYZE
-    if selected_home_team != "" and selected_opponent_team != "":
+    if selected_home_team != "" and selected_opponent_team != "" and selected_home_team != selected_opponent_team:
         local_vulnerable, local_opportune = get_local_data(data, selected_home_team, selected_opponent_team, is_all_shots)
 
         st.header(f"{selected_home_team} vs. {selected_opponent_team}")
