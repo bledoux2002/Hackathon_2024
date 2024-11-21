@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 from scipy.stats import gaussian_kde
 import streamlit as st
 import extract_pdf
-from plotting import goal_heatmap, goal_scatter
+from plotting import goal_heatmap, goal_scatter, field_scatter
 
 def get_global_data(data_copy, selected_home_team, is_all_shots):
     """
@@ -83,9 +83,17 @@ if __name__ == "__main__":
     data = data.round(1)
     data = data.drop_duplicates().reset_index(drop=True)
 
+    # GETTING THE DATA
+    data_field = pd.read_csv("./master_field.csv") # WITHOUT DOCKER
+    #data_field = pd.read_csv("match-reports/existing-match-reports-code/master.csv") # WITH DOCKER
+    data_field = data_field.iloc[:, 1:]
+    data_field = data_field.round(1)
+    data_field = data_field.drop_duplicates().reset_index(drop=True)
+
     # IF A SINGLE TEAM IS PICKED TO ANALYZE
     if selected_home_team != "" and not selected_opponent_team:
         global_vulnerable, global_opportune = get_global_data(data, selected_home_team, is_all_shots)
+        global_vulnerable_field, global_opportune_field = get_global_data(data_field, selected_home_team, is_all_shots)
 
         st.header(f"{selected_home_team} vs. All Opponents")
         # write_vulnerable_and_opportune(global_vulnerable, global_opportune)
@@ -97,6 +105,8 @@ if __name__ == "__main__":
         with col2:
             st.pyplot(goal_scatter(global_vulnerable, title=f'{selected_home_team} Vulnerable Shot Locations (DBSCAN)'))
 
+        st.pyplot(field_scatter(global_vulnerable_field, title='GOAL'))
+
         col3, col4 = st.columns(2)
 
         with col3:
@@ -105,9 +115,12 @@ if __name__ == "__main__":
         with col4:
             st.pyplot(goal_scatter(global_opportune, title=f'{selected_home_team} Opportune Shot Locations DBSCAN'))
 
+        st.pyplot(field_scatter(global_opportune_field, title='GOAL'))
+
     # IF A SECOND TEAM IS PICKED TO ANALYZE
     if selected_home_team != "" and selected_opponent_team != "" and selected_home_team != selected_opponent_team:
         local_vulnerable, local_opportune = get_local_data(data, selected_home_team, selected_opponent_team, is_all_shots)
+        local_vulnerable_field, local_opportune_field = get_local_data(data_field, selected_home_team, selected_opponent_team, is_all_shots)
 
         st.header(f"{selected_home_team} vs. {selected_opponent_team}")
         # write_vulnerable_and_opportune(local_vulnerable, local_opportune)
@@ -117,8 +130,13 @@ if __name__ == "__main__":
         with col5:
             st.pyplot(goal_heatmap(local_vulnerable, title=f'{selected_home_team} Vulnerable Shot Locations (Heatmap)'))
 
+        st.pyplot(field_scatter(local_vulnerable_field, title='GOAL'))
+
         with col6:
             st.pyplot(goal_heatmap(local_opportune, title=f'{selected_home_team} Opportune Shot Locations Hotspots'))
+
+        st.pyplot(field_scatter(local_opportune_field, title='GOAL'))
+        
 
     
         # st.write(goal_scatter(local_vulnerable, title=f'{selected_home_team} vulnerable'))

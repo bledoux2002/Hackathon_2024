@@ -169,7 +169,39 @@ def goal_scatter(df, title):
     return fig
 
 
-def test_scatter(df, title):
+# def test_scatter(df, title):
+
+#     x = np.array(df['width'])
+#     y = np.array(df['length'])
+
+#     fig = plt.figure(
+#         #  figsize=(6, 3)
+#          )
+#     ax = fig.add_subplot(111)
+#     ax.set_facecolor('black')  # This sets only the plot area to black
+
+#     if len(x) > 0:  
+#             plt.scatter(x, y, color='red')
+#     else:
+#         title += ' (NO HOT SPOTS)'
+
+#     # Goal line coordinates
+#     goalX = [85, 85, 510, 510]
+#     goalY = [600, 740, 740, 600]
+
+#     # Add goal lines
+#     plt.plot(goalX, goalY, color='white')
+
+#     # Set plot limits and aspect ratio
+#     plt.xlim(0, 595)
+#     plt.ylim(600, 800)
+#     # plt.gca().set_aspect('equal', adjustable='box')
+#     plt.gca().set_aspect('equal', adjustable='datalim')
+#     plt.title(title)
+
+#     return fig
+
+def field_scatter(df, title):
 
     x = np.array(df['width'])
     y = np.array(df['length'])
@@ -177,26 +209,29 @@ def test_scatter(df, title):
     fig = plt.figure(
         #  figsize=(6, 3)
          )
-    ax = fig.add_subplot(111)
-    ax.set_facecolor('black')  # This sets only the plot area to black
+    # ax = fig.add_subplot(111)
+    # ax.set_facecolor('black')  # This sets only the plot area to black
 
     if len(x) > 0:  
             plt.scatter(x, y, color='red')
     else:
-        title += ' (NO HOT SPOTS)'
+        title += ''
 
     # Goal line coordinates
-    goalX = [85, 85, 510, 510]
-    goalY = [600, 740, 740, 600]
+    goalX = [120, 120, 160, 160]
+    goalY = [500, 510, 510, 500]
 
     # Add goal lines
-    plt.plot(goalX, goalY, color='white')
+    plt.plot(goalX, goalY, color='black')
 
     # Set plot limits and aspect ratio
-    plt.xlim(0, 595)
-    plt.ylim(600, 800)
+    plt.xlim(30, 250)
+    plt.ylim(350, 505)
     # plt.gca().set_aspect('equal', adjustable='box')
     plt.gca().set_aspect('equal', adjustable='datalim')
     plt.title(title)
+
+    # plt.xticks([])
+    # plt.yticks([])
 
     return fig
