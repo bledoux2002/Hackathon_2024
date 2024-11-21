@@ -421,7 +421,7 @@ def parse_shot_locs(src_folder: str, team: str):
     return final
 
 def plot_shots(data):
-  home_team = "Northwestern Wildcats"
+  home_team = teamname
   teams = data['team_name'].unique()
   opponents = [team for team in teams if team != home_team]
   x = np.array(data['width'])
@@ -477,19 +477,30 @@ def plot_shots(data):
 def plot_kde(data):
     x = np.array(data['width'])
     y = np.array(data['length'])
-    
+
     dataNew = np.vstack([x, y])
 
     nbins = 20
 
-    k = gaussian_kde(dataNew)
-    xi, yi = np.mgrid[x.min():x.max():nbins*1j, y.min():y.max():nbins*1j]
+    k = gaussian_kde(dataNew, bw_method=0.4)
+
+    goalX = [85, 85, 510, 510]
+    goalY = [600, 740, 740, 600]
+
+    fig, ax = plt.subplots(figsize=(6, 3))  
+    ax.set_title('2D Density with shading')
+
+    xi, yi = np.mgrid[0:595:nbins*1j, 600:800:nbins*1j]
     zi = k(np.vstack([xi.flatten(), yi.flatten()]))
 
-    fig, ax = plt.subplots()
-    ax.set_title('2D Density with shading')
     ax.pcolormesh(xi, yi, zi.reshape(xi.shape), shading='gouraud', cmap='inferno')
-    
+
+    ax.plot(goalX, goalY, color='white')
+
+    ax.set_xlim(0, 595)
+    ax.set_ylim(600, 800)
+    ax.set_aspect('equal', adjustable='box')
+
     st.pyplot(fig)
 
 
