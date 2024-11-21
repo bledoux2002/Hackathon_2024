@@ -540,9 +540,34 @@ if __name__ == "__main__":
     data = data.iloc[:, 1:]
     data = data.round(1)
     data = data.drop_duplicates().reset_index(drop=True)
+    st.header("Entire Dataset")
     st.dataframe(data)
 
-    if selected_home_team != "":
+# GLOBAL
+    if selected_home_team != "" and not selected_opponent_team:
+        st.header(f"{selected_home_team} vs. All Opponents")
         global_vulnerable, global_opportune = get_global_data(data, selected_home_team, is_all_shots)
-        if selected_opponent_team != "":
-            local_vulnerable, local_opportune = get_local_data(data, selected_home_team, selected_opponent_team, is_all_shots)
+
+        st.subheader(f"Vulnerabilities for {selected_home_team}")
+        st.dataframe(global_vulnerable)
+
+        st.subheader(f"Opportunities for {selected_home_team}")
+        st.dataframe(global_opportune)
+
+# LOCAL
+    if selected_home_team != "" and selected_opponent_team != "":
+        st.header(f"{selected_home_team} vs. {selected_opponent_team}")
+        local_vulnerable, local_opportune = get_local_data(data, selected_home_team, selected_opponent_team, is_all_shots)
+        
+        st.subheader(f"Vulnerabilities for {selected_home_team}")
+        st.dataframe(local_vulnerable)
+
+        st.subheader(f"Opportunities for {selected_home_team}")
+        st.dataframe(local_opportune)
+
+        home_goals = local_opportune['goal'].sum()
+        away_goals = local_vulnerable['goal'].sum()
+
+        st.sidebar.subheader("Score:")
+        st.sidebar.write(f"{selected_home_team}: {home_goals}")
+        st.sidebar.write(f"{selected_opponent_team}: {away_goals}")
