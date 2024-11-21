@@ -7,89 +7,7 @@ import matplotlib.pyplot as plt
 from scipy.stats import gaussian_kde
 import streamlit as st
 import extract_pdf
-
-def plot_shots(data):
-  home_team = teamname
-  teams = data['team_name'].unique()
-  opponents = [team for team in teams if team != home_team]
-  x = np.array(data['width'])
-  y = np.array(data['length'])
-  target = np.array(data['target'])
-  goal = np.array(data['goal'])
-
-  goalX = [85, 85, 510, 510]
-  goalY = [600, 740, 740, 600]
-
-  fig, axes = plt.subplots(len(opponents), 2, figsize=(13, len(opponents) * 3))
-
-  for i in range (len(axes)):
-      # Home mask = only shots taken by teams on opposition goal
-      home_mask = data['team_name'] == home_team
-      opp_mask = data['opponent_team_name'] == opponents[i]
-      x_home = x[home_mask & opp_mask]
-      y_home = y[home_mask & opp_mask]
-      target_home = target[home_mask & opp_mask]
-      goal_home = goal[home_mask & opp_mask]
-
-      for j in range(len(x_home)):
-          marker = 'D' if goal_home[j] else 'o'
-          color = 'b' if target_home[j] == "off_target" else 'r'
-          axes[i, 0].scatter(x_home[j], y_home[j], marker=marker, color=color)
-      axes[i, 0].set_title(f'{home_team} shots on {opponents[i]}')
-      
-      axes[i, 0].plot(goalX, goalY, color='purple')
-      axes[i, 0].set_xlim(0, 595)
-      axes[i, 0].set_ylim(600, 800)
-      axes[i, 0].set_aspect('equal', adjustable='box')
-
-      # Opp mask = only shots taken by the opponents on home goal
-      opp_mask = data['team_name'] == opponents[i]
-      home_mask = data['opponent_team_name'] == home_team
-      x_opp = x[opp_mask & home_mask]
-      y_opp = y[opp_mask & home_mask]
-      target_opp = target[opp_mask & home_mask]
-      goal_opp = goal[opp_mask & home_mask]
-
-      for j in range(len(x_opp)):
-          marker = 'D' if goal_opp[j] else 'o'
-          color = 'b' if target_opp[j] == "off_target" else 'r'
-          axes[i, 1].scatter(x_opp[j], y_opp[j], marker=marker, color=color)
-      axes[i, 1].set_title(f'{opponents[i]} shots on {home_team}')
-      
-      axes[i, 1].plot(goalX, goalY, color='purple')
-      axes[i, 1].set_xlim(0, 595)
-      axes[i, 1].set_ylim(600, 800)
-      axes[i, 1].set_aspect('equal', adjustable='box')
-  st.write(fig)
-
-def plot_kde(data):
-    x = np.array(data['width'])
-    y = np.array(data['length'])
-
-    dataNew = np.vstack([x, y])
-
-    nbins = 20
-
-    k = gaussian_kde(dataNew, bw_method=0.4)
-
-    goalX = [85, 85, 510, 510]
-    goalY = [600, 740, 740, 600]
-
-    fig, ax = plt.subplots(figsize=(6, 3))  
-    ax.set_title('2D Density with shading')
-
-    xi, yi = np.mgrid[0:595:nbins*1j, 600:800:nbins*1j]
-    zi = k(np.vstack([xi.flatten(), yi.flatten()]))
-
-    ax.pcolormesh(xi, yi, zi.reshape(xi.shape), shading='gouraud', cmap='inferno')
-
-    ax.plot(goalX, goalY, color='white')
-
-    ax.set_xlim(0, 595)
-    ax.set_ylim(600, 800)
-    ax.set_aspect('equal', adjustable='box')
-
-    st.pyplot(fig)
+from plotting import goal_heatmap, goal_scatter
 
 def get_global_data(data_copy, selected_home_team, is_all_shots):
     """
@@ -136,117 +54,6 @@ def write_vulnerable_and_opportune(vulnerable, opportune):
 
     st.subheader(f"Opportunities for {selected_home_team}")
     st.dataframe(opportune)
-
-
-from scipy.stats import gaussian_kde
-
-def goal_heatmap(df, title):
-    # Extract x and y from the dataframe
-    x = np.array(df['width'])
-    y = np.array(df['length'])
-
-    fig = plt.figure(figsize=(6, 3))
-    ax = fig.add_subplot(111)
-    ax.set_facecolor('black')  # This sets only the plot area to black
-
-    if len(x) > 2:  # Ensure more than one point
-            # Transpose the data to have each column represent a point
-            dataNew = np.column_stack([x, y])
-
-            nbins = 20
-
-            # Perform KDE with specified bandwidth
-            k = gaussian_kde(dataNew.T, bw_method=0.4)
-
-            # Define grid for KDE
-            xi, yi = np.mgrid[0:595:nbins*1j, 600:800:nbins*1j]
-            zi = k(np.vstack([xi.flatten(), yi.flatten()]))
-
-            # Plot the density with shading
-            plt.pcolormesh(xi, yi, zi.reshape(xi.shape), shading='gouraud', cmap='inferno')
-    elif len(x) == 1:  
-            plt.scatter(x, y, color='red')
-            title += ' (ONE SHOT)'
-    else:
-        title += ' (NO SHOTS)'
-
-    # Goal line coordinates
-    goalX = [85, 85, 510, 510]
-    goalY = [600, 740, 740, 600]
-
-    # Add goal lines
-    plt.plot(goalX, goalY, color='white')
-
-    # Set plot limits and aspect ratio
-    plt.xlim(0, 595)
-    plt.ylim(600, 800)
-    plt.gca().set_aspect('equal', adjustable='box')
-    plt.title(title)
-
-    return fig
-
-from sklearn.cluster import DBSCAN
-def get_hot_spots(df):
-    x = np.array(df['width'])
-    y = np.array(df['length'])
-
-    if len(x) < 1:
-        return np.array([]), np.array([])
-
-    # Combine x and y into a single array for clustering
-    coords = np.column_stack((x, y))
-
-    # Apply DBSCAN
-    epsilon = 0.5  # Maximum distance between two samples for one to be considered as in the neighborhood of the other
-    min_samples = 2  # Minimum number of samples in a neighborhood for a point to be considered as a core point
-    dbscan = DBSCAN(eps=epsilon, min_samples=min_samples)
-    labels = dbscan.fit_predict(coords)
-
-    # Extract cluster centers
-    cluster_centers = []
-    for cluster_id in set(labels):
-        if cluster_id == -1:  # Skip noise points
-            continue
-        cluster_points = coords[labels == cluster_id]
-        center = cluster_points.mean(axis=0)
-        cluster_centers.append(center)
-
-    # Separate x and y coordinates of the cluster centers
-    cluster_centers = np.array(cluster_centers)
-    if len(cluster_centers) < 1:
-        return np.array([]), np.array([])
-    center_x = cluster_centers[:, 0]
-    center_y = cluster_centers[:, 1]
-
-    return center_x, center_y
-
-def goal_scatter(df, title):
-
-    x, y = get_hot_spots(df)
-
-    fig = plt.figure(figsize=(6, 3))
-    ax = fig.add_subplot(111)
-    ax.set_facecolor('black')  # This sets only the plot area to black
-
-    if len(x) > 0:  
-            plt.scatter(x, y, color='red')
-    else:
-        title += ' (NO HOT SPOTS)'
-
-    # Goal line coordinates
-    goalX = [85, 85, 510, 510]
-    goalY = [600, 740, 740, 600]
-
-    # Add goal lines
-    plt.plot(goalX, goalY, color='white')
-
-    # Set plot limits and aspect ratio
-    plt.xlim(0, 595)
-    plt.ylim(600, 800)
-    plt.gca().set_aspect('equal', adjustable='box')
-    plt.title(title)
-
-    return fig
 
 if __name__ == "__main__":
     name_to_pdfs = {
@@ -315,8 +122,8 @@ if __name__ == "__main__":
         # st.write(goal_scatter(local_vulnerable, title=f'{selected_home_team} vulnerable'))
         # st.write(goal_scatter(local_opportune, title=f'{selected_home_team} opportune'))
 
-        st.dataframe(local_vulnerable)
-        st.dataframe(local_opportune)
+        # st.dataframe(local_vulnerable)
+        # st.dataframe(local_opportune)
 
         home_goals = local_opportune['goal'].sum()
         away_goals = local_vulnerable['goal'].sum()
