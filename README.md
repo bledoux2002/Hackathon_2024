@@ -6,7 +6,7 @@
 - Ben Ledoux, Michael Bertagna, Paul McSlarrow
   
 #### Build Instructions:
-1. Clone the repo: <b>git clone https://github.com/bledoux2002/Hackathon_2024.git</>
+1. Clone the repo: <b>git clone https://github.com/bledoux2002/Hackathon_2024.git</b>
 2. Download Docker Desktop and make sure it is *RUNNING*
 3. Navigate to the root directory of the folder
 4. In a terminal, run <b>./docker-build-run.bash</b>
