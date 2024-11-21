@@ -51,3 +51,10 @@ Finally we were able to use Streamlit, a service built to make web development q
   <img src="./heat_and_db.png" alt="" width="900px"/>
   <p>(Figure 4)</p>
 </div>
+
+Our final plot that we focused on last minute was the field plot from where players are shooting from on the field. 
+
+<div style="text-align: center">
+  <img src="./new_plot.PNG" alt="Where players are shooting from on the field" width="900px"/>
+  <p>(Figure 5)</p>
+</div>
