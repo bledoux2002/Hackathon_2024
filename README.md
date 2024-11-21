@@ -1,5 +1,8 @@
-# Title: Heatmaps and DBSCAN on Big Ten Shot Data
-#### Group Members:
+# Goal Guru
+
+#### Heatmaps and DBSCAN on Big Ten Shot Data
+
+#### Group Members :
 - Ben Ledoux, Michael Bertagna, Paul McSlarrow
   
 #### Build Instructions:
