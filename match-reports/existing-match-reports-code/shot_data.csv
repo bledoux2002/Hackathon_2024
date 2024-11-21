@@ -1,0 +1,250 @@
+,team_name,length,width,target,length_translated,width_translated,matchdate,opp_backline_num,backline_num,opponent_team_name
+0,Washington Huskies,628.0,297.7,on_target,-43.0,-7.5,2024-09-21,4,4,Northwestern Wildcats
+1,Washington Huskies,757.6,332.3,off_target,-82.1,-17.8,2024-09-21,4,4,Northwestern Wildcats
+2,Washington Huskies,628.0,434.2,on_target,-43.0,-48.3,2024-09-21,4,4,Northwestern Wildcats
+3,Washington Huskies,628.0,153.0,on_target,-43.0,35.8,2024-09-21,4,4,Northwestern Wildcats
+4,Washington Huskies,674.6,434.2,on_target,-57.0,-48.3,2024-09-21,4,4,Northwestern Wildcats
+5,Washington Huskies,757.7,250.2,off_target,-82.1,6.8,2024-09-21,4,4,Northwestern Wildcats
+6,Washington Huskies,714.7,434.2,on_target,-69.1,-48.3,2024-09-21,4,4,Northwestern Wildcats
+7,Washington Huskies,757.6,349.6,off_target,-82.1,-23.0,2024-09-21,4,4,Northwestern Wildcats
+8,Washington Huskies,674.5,297.7,on_target,-57.0,-7.4,2024-09-21,4,4,Northwestern Wildcats
+9,Washington Huskies,614.4,537.9,off_target,-38.9,-79.3,2024-09-21,4,4,Northwestern Wildcats
+10,Washington Huskies,757.6,434.2,off_target,-82.1,-48.3,2024-09-21,4,4,Northwestern Wildcats
+11,Northwestern Wildcats,743.3,153.0,off_target,-77.8,35.8,2024-09-21,4,4,Washington Huskies
+12,Northwestern Wildcats,757.7,163.8,off_target,-82.1,32.6,2024-09-21,4,4,Washington Huskies
+13,Northwestern Wildcats,618.7,146.5,on_target,-40.2,37.8,2024-09-21,4,4,Washington Huskies
+14,Northwestern Wildcats,757.7,112.0,off_target,-82.1,48.1,2024-09-21,4,4,Washington Huskies
+15,Northwestern Wildcats,628.0,434.2,on_target,-43.0,-48.3,2024-09-21,4,4,Washington Huskies
+16,Northwestern Wildcats,757.7,133.6,off_target,-82.1,41.7,2024-09-21,4,4,Washington Huskies
+17,Northwestern Wildcats,628.0,60.1,off_target,-43.0,63.6,2024-09-21,4,4,Washington Huskies
+18,Northwestern Wildcats,757.7,159.5,off_target,-82.1,33.9,2024-09-21,4,4,Washington Huskies
+19,Northwestern Wildcats,631.6,107.6,on_target,-44.1,49.4,2024-09-21,4,4,Washington Huskies
+20,Northwestern Wildcats,633.0,241.6,on_target,-44.5,9.3,2024-11-03,4,4,Penn State Nittany Lion
+21,Northwestern Wildcats,674.6,153.0,on_target,-57.0,35.9,2024-11-03,4,4,Penn State Nittany Lion
+22,Northwestern Wildcats,674.6,434.2,on_target,-57.0,-48.3,2024-11-03,4,4,Penn State Nittany Lion
+23,Northwestern Wildcats,723.3,254.5,on_target,-71.7,5.5,2024-11-03,4,4,Penn State Nittany Lion
+24,Northwestern Wildcats,743.4,434.2,off_target,-77.8,-48.3,2024-11-03,4,4,Penn State Nittany Lion
+25,Northwestern Wildcats,723.2,293.4,on_target,-71.7,-6.2,2024-11-03,4,4,Penn State Nittany Lion
+26,Northwestern Wildcats,757.6,153.0,off_target,-82.1,35.8,2024-11-03,4,4,Penn State Nittany Lion
+27,Northwestern Wildcats,615.8,129.2,on_target,-39.3,43.0,2024-11-03,4,4,Penn State Nittany Lion
+28,Northwestern Wildcats,615.8,340.9,on_target,-39.3,-20.4,2024-11-03,4,4,Penn State Nittany Lion
+29,Northwestern Wildcats,628.0,434.1,on_target,-43.0,-48.3,2024-11-03,4,4,Penn State Nittany Lion
+30,Northwestern Wildcats,628.0,60.1,off_target,-43.0,63.6,2024-11-03,4,4,Penn State Nittany Lion
+31,Northwestern Wildcats,638.8,103.3,on_target,-46.2,50.7,2024-11-03,4,4,Penn State Nittany Lion
+32,Northwestern Wildcats,623.0,537.9,off_target,-41.5,-79.3,2024-11-03,4,4,Penn State Nittany Lion
+33,Penn State Nittany Lion,757.7,153.0,off_target,-82.1,35.8,2024-11-03,4,4,Northwestern Wildcats
+34,Penn State Nittany Lion,628.0,153.0,on_target,-43.0,35.8,2024-11-03,4,4,Northwestern Wildcats
+35,Penn State Nittany Lion,674.6,153.0,on_target,-57.0,35.8,2024-11-03,4,4,Northwestern Wildcats
+36,Penn State Nittany Lion,714.7,297.7,on_target,-69.1,-7.5,2024-11-03,4,4,Northwestern Wildcats
+37,Penn State Nittany Lion,757.7,434.2,off_target,-82.1,-48.3,2024-11-03,4,4,Northwestern Wildcats
+38,Penn State Nittany Lion,757.6,297.7,off_target,-82.1,-7.5,2024-11-03,4,4,Northwestern Wildcats
+39,Penn State Nittany Lion,628.0,60.1,off_target,-43.0,63.6,2024-11-03,4,4,Northwestern Wildcats
+40,Rutgers Scarlet Knights,628.0,434.1,on_target,-43.0,-48.3,2024-10-12,4,4,Northwestern Wildcats
+41,Rutgers Scarlet Knights,757.7,434.2,off_target,-82.1,-48.3,2024-10-12,4,4,Northwestern Wildcats
+42,Rutgers Scarlet Knights,628.0,86.0,on_target,-43.0,55.9,2024-10-12,4,4,Northwestern Wildcats
+43,Rutgers Scarlet Knights,674.6,527.1,off_target,-57.0,-76.1,2024-10-12,4,4,Northwestern Wildcats
+44,Rutgers Scarlet Knights,628.0,60.1,off_target,-43.0,63.6,2024-10-12,4,4,Northwestern Wildcats
+45,Rutgers Scarlet Knights,628.0,297.7,on_target,-43.0,-7.5,2024-10-12,4,4,Northwestern Wildcats
+46,Rutgers Scarlet Knights,674.6,297.7,on_target,-57.0,-7.5,2024-10-12,4,4,Northwestern Wildcats
+47,Rutgers Scarlet Knights,674.6,509.8,on_target,-57.0,-70.9,2024-10-12,4,4,Northwestern Wildcats
+48,Northwestern Wildcats,627.3,537.9,off_target,-42.8,-79.3,2024-10-12,4,4,Rutgers Scarlet Knights
+49,Northwestern Wildcats,628.0,86.0,on_target,-43.0,55.9,2024-10-12,4,4,Rutgers Scarlet Knights
+50,Northwestern Wildcats,757.7,297.7,off_target,-82.1,-7.5,2024-10-12,4,4,Rutgers Scarlet Knights
+51,Northwestern Wildcats,757.7,153.0,off_target,-82.1,35.8,2024-10-12,4,4,Rutgers Scarlet Knights
+52,Northwestern Wildcats,628.0,153.0,on_target,-43.0,35.8,2024-10-12,4,4,Rutgers Scarlet Knights
+53,Northwestern Wildcats,674.5,153.0,on_target,-57.0,35.8,2024-10-12,4,4,Rutgers Scarlet Knights
+54,Northwestern Wildcats,628.0,297.7,on_target,-43.0,-7.4,2024-10-12,4,4,Rutgers Scarlet Knights
+55,Northwestern Wildcats,757.6,434.2,off_target,-82.1,-48.3,2024-10-12,4,4,Rutgers Scarlet Knights
+56,Northwestern Wildcats,667.4,168.1,on_target,-54.9,31.3,2024-10-19,5,4,Michigan Wolverines
+57,Northwestern Wildcats,674.6,163.8,on_target,-57.0,32.6,2024-10-19,5,4,Michigan Wolverines
+58,Northwestern Wildcats,674.5,434.2,on_target,-57.0,-48.3,2024-10-19,5,4,Michigan Wolverines
+59,Northwestern Wildcats,757.6,153.0,off_target,-82.1,35.8,2024-10-19,5,4,Michigan Wolverines
+60,Northwestern Wildcats,757.6,434.2,off_target,-82.1,-48.3,2024-10-19,5,4,Michigan Wolverines
+61,Michigan Wolverines,757.6,153.0,off_target,-82.1,35.8,2024-10-19,4,5,Northwestern Wildcats
+62,Michigan Wolverines,757.6,297.7,off_target,-82.1,-7.5,2024-10-19,4,5,Northwestern Wildcats
+63,UIC Flames,638.8,512.0,off_target,-46.2,-71.6,2024-09-03,4,4,Northwestern Wildcats
+64,UIC Flames,628.0,153.0,on_target,-43.0,35.8,2024-09-03,4,4,Northwestern Wildcats
+65,UIC Flames,674.6,297.7,on_target,-57.0,-7.5,2024-09-03,4,4,Northwestern Wildcats
+66,Northwestern Wildcats,628.0,153.0,on_target,-43.0,35.8,2024-09-03,4,4,UIC Flames
+67,Northwestern Wildcats,637.3,537.9,off_target,-45.8,-79.3,2024-09-03,4,4,UIC Flames
+68,Northwestern Wildcats,623.0,537.9,off_target,-41.5,-79.3,2024-09-03,4,4,UIC Flames
+69,Northwestern Wildcats,633.0,537.9,off_target,-44.5,-79.3,2024-09-03,4,4,UIC Flames
+70,Northwestern Wildcats,657.4,474.8,on_target,-51.8,-60.4,2024-09-03,4,4,UIC Flames
+71,Northwestern Wildcats,628.0,434.2,on_target,-43.0,-48.3,2024-09-03,4,4,UIC Flames
+72,Northwestern Wildcats,628.0,60.1,off_target,-43.0,63.6,2024-09-03,4,4,UIC Flames
+73,Northwestern Wildcats,696.0,483.5,on_target,-63.5,-63.0,2024-09-03,4,4,UIC Flames
+74,Northwestern Wildcats,628.0,297.7,on_target,-43.0,-7.5,2024-09-03,4,4,UIC Flames
+75,Indiana Hoosiers,635.9,146.5,on_target,-45.4,37.8,2024-10-30,5,4,Northwestern Wildcats
+76,Indiana Hoosiers,757.6,434.2,off_target,-82.1,-48.3,2024-10-30,5,4,Northwestern Wildcats
+77,Indiana Hoosiers,614.4,319.3,on_target,-38.9,-13.9,2024-10-30,5,4,Northwestern Wildcats
+78,Indiana Hoosiers,656.0,319.3,on_target,-51.4,-13.9,2024-10-30,5,4,Northwestern Wildcats
+79,Indiana Hoosiers,637.4,537.9,off_target,-45.8,-79.3,2024-10-30,5,4,Northwestern Wildcats
+80,Indiana Hoosiers,714.7,434.2,on_target,-69.1,-48.3,2024-10-30,5,4,Northwestern Wildcats
+81,Indiana Hoosiers,674.5,434.2,on_target,-57.0,-48.3,2024-10-30,5,4,Northwestern Wildcats
+82,Indiana Hoosiers,628.0,86.0,on_target,-43.0,55.9,2024-10-30,5,4,Northwestern Wildcats
+83,Indiana Hoosiers,628.0,60.1,off_target,-43.0,63.6,2024-10-30,5,4,Northwestern Wildcats
+84,Indiana Hoosiers,631.6,146.5,on_target,-44.1,37.8,2024-10-30,5,4,Northwestern Wildcats
+85,Indiana Hoosiers,670.3,99.0,on_target,-55.7,52.0,2024-10-30,5,4,Northwestern Wildcats
+86,Indiana Hoosiers,688.9,107.6,on_target,-61.4,49.4,2024-10-30,5,4,Northwestern Wildcats
+87,Indiana Hoosiers,623.0,293.4,on_target,-41.5,-6.2,2024-10-30,5,4,Northwestern Wildcats
+88,Indiana Hoosiers,654.5,159.5,on_target,-51.0,33.9,2024-10-30,5,4,Northwestern Wildcats
+89,Indiana Hoosiers,653.1,302.0,on_target,-50.6,-8.7,2024-10-30,5,4,Northwestern Wildcats
+90,Northwestern Wildcats,690.3,537.9,off_target,-61.8,-79.3,2024-10-30,4,5,Indiana Hoosiers
+91,Northwestern Wildcats,757.6,94.7,off_target,-82.1,53.3,2024-10-30,4,5,Indiana Hoosiers
+92,Northwestern Wildcats,757.6,129.2,off_target,-82.1,43.0,2024-10-30,4,5,Indiana Hoosiers
+93,Northwestern Wildcats,674.6,297.8,on_target,-57.0,-7.5,2024-10-30,4,5,Indiana Hoosiers
+94,Northwestern Wildcats,757.7,434.2,off_target,-82.1,-48.3,2024-10-30,4,5,Indiana Hoosiers
+95,Northwestern Wildcats,693.2,537.9,off_target,-62.7,-79.3,2024-10-30,4,5,Indiana Hoosiers
+96,Northwestern Wildcats,757.6,159.5,off_target,-82.1,33.9,2024-10-30,4,5,Indiana Hoosiers
+97,Western Michigan Broncos,628.0,297.7,on_target,-43.0,-7.5,2024-09-06,4,4,Northwestern Wildcats
+98,Western Michigan Broncos,757.7,159.5,off_target,-82.1,33.9,2024-09-06,4,4,Northwestern Wildcats
+99,Western Michigan Broncos,674.6,297.7,on_target,-57.0,-7.5,2024-09-06,4,4,Northwestern Wildcats
+100,Western Michigan Broncos,750.5,168.1,off_target,-80.0,31.3,2024-09-06,4,4,Northwestern Wildcats
+101,Western Michigan Broncos,674.6,434.2,on_target,-57.0,-48.3,2024-09-06,4,4,Northwestern Wildcats
+102,Western Michigan Broncos,634.4,537.8,off_target,-44.9,-79.3,2024-09-06,4,4,Northwestern Wildcats
+103,Northwestern Wildcats,628.0,297.7,on_target,-43.0,-7.5,2024-09-06,4,4,Western Michigan Broncos
+104,Northwestern Wildcats,757.7,434.2,off_target,-82.1,-48.3,2024-09-06,4,4,Western Michigan Broncos
+105,Northwestern Wildcats,628.0,153.0,on_target,-43.0,35.8,2024-09-06,4,4,Western Michigan Broncos
+106,Northwestern Wildcats,714.6,153.0,on_target,-69.1,35.8,2024-09-06,4,4,Western Michigan Broncos
+107,Northwestern Wildcats,690.3,155.1,on_target,-61.8,35.2,2024-08-22,4,4,Green Bay Phoenix
+108,Northwestern Wildcats,628.0,60.1,off_target,-43.0,63.6,2024-08-22,4,4,Green Bay Phoenix
+109,Northwestern Wildcats,634.4,315.0,on_target,-44.9,-12.6,2024-08-22,4,4,Green Bay Phoenix
+110,Northwestern Wildcats,634.4,537.8,off_target,-44.9,-79.3,2024-08-22,4,4,Green Bay Phoenix
+111,Northwestern Wildcats,757.6,434.2,off_target,-82.1,-48.3,2024-08-22,4,4,Green Bay Phoenix
+112,Northwestern Wildcats,674.5,527.1,off_target,-57.0,-76.1,2024-08-22,4,4,Green Bay Phoenix
+113,Northwestern Wildcats,674.6,297.7,on_target,-57.0,-7.5,2024-08-22,4,4,Green Bay Phoenix
+114,Northwestern Wildcats,757.6,323.6,off_target,-82.1,-15.2,2024-08-22,4,4,Green Bay Phoenix
+115,Northwestern Wildcats,628.0,434.2,on_target,-43.0,-48.3,2024-08-22,4,4,Green Bay Phoenix
+116,Northwestern Wildcats,690.3,163.8,on_target,-61.8,32.6,2024-08-22,4,4,Green Bay Phoenix
+117,Northwestern Wildcats,614.4,276.1,on_target,-38.9,-1.0,2024-08-22,4,4,Green Bay Phoenix
+118,Northwestern Wildcats,757.6,153.0,off_target,-82.1,35.8,2024-08-22,4,4,Green Bay Phoenix
+119,Northwestern Wildcats,674.6,509.8,on_target,-57.0,-70.9,2024-08-22,4,4,Green Bay Phoenix
+120,Northwestern Wildcats,757.7,328.0,off_target,-82.1,-16.5,2024-08-22,4,4,Green Bay Phoenix
+121,Northwestern Wildcats,674.5,60.1,off_target,-57.0,63.6,2024-08-22,4,4,Green Bay Phoenix
+122,Green Bay Phoenix,620.1,537.9,off_target,-40.6,-79.3,2024-08-22,4,4,Northwestern Wildcats
+123,Northwestern Wildcats,757.7,434.2,off_target,-82.1,-48.3,2024-08-31,4,5,Drake Bulldogs
+124,Northwestern Wildcats,757.6,146.5,off_target,-82.1,37.8,2024-08-31,4,5,Drake Bulldogs
+125,Northwestern Wildcats,637.3,537.9,off_target,-45.8,-79.3,2024-08-31,4,5,Drake Bulldogs
+126,Northwestern Wildcats,743.4,297.7,off_target,-77.8,-7.5,2024-08-31,4,5,Drake Bulldogs
+127,Northwestern Wildcats,757.7,90.4,off_target,-82.1,54.6,2024-08-31,4,5,Drake Bulldogs
+128,Northwestern Wildcats,628.7,258.8,on_target,-43.2,4.2,2024-08-31,4,5,Drake Bulldogs
+129,Northwestern Wildcats,628.0,60.1,off_target,-43.0,63.6,2024-08-31,4,5,Drake Bulldogs
+130,Northwestern Wildcats,674.6,153.0,on_target,-57.0,35.9,2024-08-31,4,5,Drake Bulldogs
+131,Northwestern Wildcats,674.6,434.2,on_target,-57.0,-48.3,2024-08-31,4,5,Drake Bulldogs
+132,Northwestern Wildcats,621.6,328.0,on_target,-41.1,-16.5,2024-08-31,4,5,Drake Bulldogs
+133,Drake Bulldogs,628.0,297.7,on_target,-43.0,-7.5,2024-08-31,5,4,Northwestern Wildcats
+134,Drake Bulldogs,625.9,537.9,off_target,-42.3,-79.3,2024-08-31,5,4,Northwestern Wildcats
+135,Drake Bulldogs,628.0,434.2,on_target,-43.0,-48.3,2024-08-31,5,4,Northwestern Wildcats
+136,Northwestern Wildcats,757.6,142.2,off_target,-82.1,39.1,2024-10-06,4,4,Trine Thunder
+137,Northwestern Wildcats,757.7,445.0,off_target,-82.1,-51.5,2024-10-06,4,4,Trine Thunder
+138,Northwestern Wildcats,635.9,466.2,on_target,-45.4,-57.9,2024-10-06,4,4,Trine Thunder
+139,Northwestern Wildcats,628.0,297.7,on_target,-43.0,-7.4,2024-10-06,4,4,Trine Thunder
+140,Northwestern Wildcats,757.6,297.7,off_target,-82.1,-7.5,2024-10-06,4,4,Trine Thunder
+141,Northwestern Wildcats,757.7,483.9,off_target,-82.1,-63.2,2024-10-06,4,4,Trine Thunder
+142,Northwestern Wildcats,628.0,60.1,off_target,-43.0,63.6,2024-10-06,4,4,Trine Thunder
+143,Northwestern Wildcats,667.4,414.4,on_target,-54.9,-42.4,2024-10-06,4,4,Trine Thunder
+144,Northwestern Wildcats,620.1,537.9,off_target,-40.6,-79.3,2024-10-06,4,4,Trine Thunder
+145,Northwestern Wildcats,757.7,150.8,off_target,-82.1,36.5,2024-10-06,4,4,Trine Thunder
+146,Northwestern Wildcats,623.0,492.1,on_target,-41.5,-65.6,2024-10-06,4,4,Trine Thunder
+147,Northwestern Wildcats,627.3,155.2,on_target,-42.8,35.2,2024-10-06,4,4,Trine Thunder
+148,Northwestern Wildcats,674.6,153.0,on_target,-57.0,35.8,2024-10-06,4,4,Trine Thunder
+149,Northwestern Wildcats,615.8,168.1,on_target,-39.3,31.3,2024-10-06,4,4,Trine Thunder
+150,Northwestern Wildcats,694.6,414.4,on_target,-63.1,-42.4,2024-10-06,4,4,Trine Thunder
+151,Northwestern Wildcats,634.5,537.9,off_target,-44.9,-79.3,2024-10-06,4,4,Trine Thunder
+152,Trine Thunder,674.6,153.0,on_target,-57.0,35.8,2024-10-06,4,4,Northwestern Wildcats
+153,Trine Thunder,757.6,297.7,off_target,-82.1,-7.5,2024-10-06,4,4,Northwestern Wildcats
+154,Ohio State Buckeyes,625.8,120.6,on_target,-42.3,45.5,2024-10-26,4,4,Northwestern Wildcats
+155,Ohio State Buckeyes,623.0,537.9,off_target,-41.5,-79.3,2024-10-26,4,4,Northwestern Wildcats
+156,Ohio State Buckeyes,617.2,250.2,on_target,-39.7,6.8,2024-10-26,4,4,Northwestern Wildcats
+157,Ohio State Buckeyes,743.4,297.7,off_target,-77.8,-7.5,2024-10-26,4,4,Northwestern Wildcats
+158,Ohio State Buckeyes,620.1,527.1,off_target,-40.6,-76.1,2024-10-26,4,4,Northwestern Wildcats
+159,Ohio State Buckeyes,757.6,427.7,off_target,-82.1,-46.4,2024-10-26,4,4,Northwestern Wildcats
+160,Ohio State Buckeyes,634.5,271.8,on_target,-44.9,0.3,2024-10-26,4,4,Northwestern Wildcats
+161,Ohio State Buckeyes,623.0,103.3,on_target,-41.5,50.7,2024-10-26,4,4,Northwestern Wildcats
+162,Ohio State Buckeyes,634.4,349.6,on_target,-44.9,-23.0,2024-10-26,4,4,Northwestern Wildcats
+163,Ohio State Buckeyes,628.0,434.2,on_target,-43.0,-48.3,2024-10-26,4,4,Northwestern Wildcats
+164,Ohio State Buckeyes,757.6,419.1,off_target,-82.1,-43.8,2024-10-26,4,4,Northwestern Wildcats
+165,Northwestern Wildcats,757.7,153.0,off_target,-82.1,35.8,2024-10-26,4,4,Ohio State Buckeyes
+166,Northwestern Wildcats,628.0,297.7,on_target,-43.0,-7.5,2024-10-26,4,4,Ohio State Buckeyes
+167,Northwestern Wildcats,757.6,501.1,off_target,-82.1,-68.3,2024-10-26,4,4,Ohio State Buckeyes
+168,Northwestern Wildcats,757.7,458.0,off_target,-82.1,-55.4,2024-10-26,4,4,Ohio State Buckeyes
+169,Northwestern Wildcats,628.0,60.1,off_target,-43.0,63.6,2024-10-26,4,4,Ohio State Buckeyes
+170,Northwestern Wildcats,757.7,483.9,off_target,-82.1,-63.2,2024-10-26,4,4,Ohio State Buckeyes
+171,Northwestern Wildcats,628.0,297.7,on_target,-43.0,-7.5,2024-09-14,4,4,UCLA Bruins
+172,Northwestern Wildcats,757.7,153.0,off_target,-82.1,35.8,2024-09-14,4,4,UCLA Bruins
+173,Northwestern Wildcats,674.6,297.7,on_target,-57.0,-7.5,2024-09-14,4,4,UCLA Bruins
+174,Northwestern Wildcats,628.0,60.1,off_target,-43.0,63.6,2024-09-14,4,4,UCLA Bruins
+175,Northwestern Wildcats,714.7,297.7,on_target,-69.1,-7.5,2024-09-14,4,4,UCLA Bruins
+176,Northwestern Wildcats,757.7,434.2,off_target,-82.1,-48.3,2024-09-14,4,4,UCLA Bruins
+177,Northwestern Wildcats,674.6,60.1,off_target,-57.0,63.6,2024-09-14,4,4,UCLA Bruins
+178,Northwestern Wildcats,634.5,537.9,off_target,-44.9,-79.3,2024-09-14,4,4,UCLA Bruins
+179,Northwestern Wildcats,674.5,153.0,on_target,-57.0,35.8,2024-09-14,4,4,UCLA Bruins
+180,UCLA Bruins,628.0,297.7,on_target,-43.0,-7.5,2024-09-14,4,4,Northwestern Wildcats
+181,UCLA Bruins,628.0,153.0,on_target,-43.0,35.8,2024-09-14,4,4,Northwestern Wildcats
+182,UCLA Bruins,674.6,153.0,on_target,-57.0,35.8,2024-09-14,4,4,Northwestern Wildcats
+183,UCLA Bruins,674.6,527.1,off_target,-57.0,-76.1,2024-09-14,4,4,Northwestern Wildcats
+184,Michigan State Spartans,628.7,537.9,off_target,-43.2,-79.3,2024-10-01,4,4,Northwestern Wildcats
+185,Michigan State Spartans,628.0,297.7,on_target,-43.0,-7.5,2024-10-01,4,4,Northwestern Wildcats
+186,Michigan State Spartans,686.0,340.9,on_target,-60.5,-20.4,2024-10-01,4,4,Northwestern Wildcats
+187,Michigan State Spartans,757.6,434.2,off_target,-82.1,-48.3,2024-10-01,4,4,Northwestern Wildcats
+188,Michigan State Spartans,714.7,434.2,on_target,-69.1,-48.3,2024-10-01,4,4,Northwestern Wildcats
+189,Michigan State Spartans,693.2,353.9,on_target,-62.7,-24.3,2024-10-01,4,4,Northwestern Wildcats
+190,Michigan State Spartans,630.1,60.1,off_target,-43.6,63.6,2024-10-01,4,4,Northwestern Wildcats
+191,Michigan State Spartans,618.7,60.1,off_target,-40.2,63.6,2024-10-01,4,4,Northwestern Wildcats
+192,Northwestern Wildcats,628.0,60.1,off_target,-43.0,63.6,2024-10-01,4,4,Michigan State Spartans
+193,Northwestern Wildcats,664.5,232.9,on_target,-54.0,11.9,2024-10-01,4,4,Michigan State Spartans
+194,Northwestern Wildcats,757.7,153.0,off_target,-82.1,35.8,2024-10-01,4,4,Michigan State Spartans
+195,Northwestern Wildcats,653.1,353.9,on_target,-50.6,-24.3,2024-10-01,4,4,Michigan State Spartans
+196,Northwestern Wildcats,628.0,153.0,on_target,-43.0,35.8,2024-10-01,4,4,Michigan State Spartans
+197,Northwestern Wildcats,757.6,434.2,off_target,-82.1,-48.3,2024-10-01,4,4,Michigan State Spartans
+198,Northwestern Wildcats,628.0,297.7,on_target,-43.0,-7.5,2024-10-01,4,4,Michigan State Spartans
+199,Northwestern Wildcats,674.6,297.7,on_target,-57.0,-7.5,2024-09-28,4,4,Maryland College Park Terrapins
+200,Northwestern Wildcats,628.0,297.8,on_target,-43.0,-7.5,2024-09-28,4,4,Maryland College Park Terrapins
+201,Northwestern Wildcats,674.5,297.7,on_target,-57.0,-7.5,2024-09-28,4,4,Maryland College Park Terrapins
+202,Northwestern Wildcats,628.0,60.1,off_target,-43.0,63.6,2024-09-28,4,4,Maryland College Park Terrapins
+203,Maryland College Park Terrapins,628.0,153.0,on_target,-43.0,35.8,2024-09-28,4,4,Northwestern Wildcats
+204,Maryland College Park Terrapins,674.6,297.7,on_target,-57.0,-7.4,2024-09-28,4,4,Northwestern Wildcats
+205,Maryland College Park Terrapins,628.0,297.7,on_target,-43.0,-7.5,2024-09-28,4,4,Northwestern Wildcats
+206,Maryland College Park Terrapins,757.7,153.0,off_target,-82.1,35.8,2024-09-28,4,4,Northwestern Wildcats
+207,Maryland College Park Terrapins,757.6,434.2,off_target,-82.1,-48.3,2024-09-28,4,4,Northwestern Wildcats
+208,Maryland College Park Terrapins,628.0,434.2,on_target,-43.0,-48.3,2024-09-28,4,4,Northwestern Wildcats
+209,Wisconsin Badgers,714.6,297.7,on_target,-69.1,-7.5,2024-10-16,4,4,Maryland College Park Terrapins
+210,Wisconsin Badgers,628.0,153.0,on_target,-43.0,35.8,2024-10-16,4,4,Maryland College Park Terrapins
+211,Wisconsin Badgers,743.3,153.0,off_target,-77.8,35.8,2024-10-16,4,4,Maryland College Park Terrapins
+212,Wisconsin Badgers,757.7,434.2,off_target,-82.1,-48.3,2024-10-16,4,4,Maryland College Park Terrapins
+213,Maryland College Park Terrapins,628.0,153.0,on_target,-43.0,35.8,2024-09-28,4,4,Wisconsin Badgers
+214,Maryland College Park Terrapins,674.6,297.7,on_target,-57.0,-7.4,2024-09-28,4,4,Wisconsin Badgers
+215,Maryland College Park Terrapins,628.0,297.7,on_target,-43.0,-7.5,2024-09-28,4,4,Wisconsin Badgers
+216,Maryland College Park Terrapins,757.7,153.0,off_target,-82.1,35.8,2024-09-28,4,4,Wisconsin Badgers
+217,Maryland College Park Terrapins,757.6,434.2,off_target,-82.1,-48.3,2024-09-28,4,4,Wisconsin Badgers
+218,Maryland College Park Terrapins,628.0,434.2,on_target,-43.0,-48.3,2024-09-28,4,4,Wisconsin Badgers
+219,Northwestern Wildcats,686.0,60.1,off_target,-60.5,63.6,2024-09-10,4,4,Marquette Golden Eagles
+220,Northwestern Wildcats,628.0,153.0,on_target,-43.0,35.8,2024-09-10,4,4,Marquette Golden Eagles
+221,Northwestern Wildcats,674.6,527.1,off_target,-57.0,-76.1,2024-09-10,4,4,Marquette Golden Eagles
+222,Northwestern Wildcats,757.6,153.0,off_target,-82.1,35.8,2024-09-10,4,4,Marquette Golden Eagles
+223,Northwestern Wildcats,757.7,434.2,off_target,-82.1,-48.3,2024-09-10,4,4,Marquette Golden Eagles
+224,Northwestern Wildcats,665.9,60.1,off_target,-54.4,63.6,2024-09-10,4,4,Marquette Golden Eagles
+225,Northwestern Wildcats,673.1,60.1,off_target,-56.6,63.6,2024-09-10,4,4,Marquette Golden Eagles
+226,Northwestern Wildcats,714.7,297.7,on_target,-69.1,-7.4,2024-09-10,4,4,Marquette Golden Eagles
+227,Northwestern Wildcats,674.6,434.2,on_target,-57.0,-48.3,2024-09-10,4,4,Marquette Golden Eagles
+228,Marquette Golden Eagles,628.0,434.2,on_target,-43.0,-48.3,2024-09-10,4,4,Northwestern Wildcats
+229,Marquette Golden Eagles,757.7,297.7,off_target,-82.1,-7.5,2024-09-10,4,4,Northwestern Wildcats
+230,Marquette Golden Eagles,757.6,434.2,off_target,-82.1,-48.3,2024-09-10,4,4,Northwestern Wildcats
+231,Marquette Golden Eagles,628.0,60.1,off_target,-43.0,63.6,2024-09-10,4,4,Northwestern Wildcats
+232,Marquette Golden Eagles,674.5,527.0,off_target,-57.0,-76.1,2024-09-10,4,4,Northwestern Wildcats
+233,Northwestern Wildcats,674.6,509.8,on_target,-57.0,-70.9,2024-08-25,4,4,DePaul Blue Demons
+234,Northwestern Wildcats,635.9,60.1,off_target,-45.4,63.6,2024-08-25,4,4,DePaul Blue Demons
+235,Northwestern Wildcats,757.6,232.9,off_target,-82.1,11.9,2024-08-25,4,4,DePaul Blue Demons
+236,Northwestern Wildcats,628.0,297.7,on_target,-43.0,-7.5,2024-08-25,4,4,DePaul Blue Demons
+237,Northwestern Wildcats,635.9,492.1,on_target,-45.4,-65.6,2024-08-25,4,4,DePaul Blue Demons
+238,Northwestern Wildcats,674.5,153.0,on_target,-57.0,35.8,2024-08-25,4,4,DePaul Blue Demons
+239,Northwestern Wildcats,714.7,434.2,on_target,-69.1,-48.3,2024-08-25,4,4,DePaul Blue Demons
+240,Northwestern Wildcats,620.2,60.1,off_target,-40.6,63.6,2024-08-25,4,4,DePaul Blue Demons
+241,Northwestern Wildcats,757.7,434.2,off_target,-82.1,-48.3,2024-08-25,4,4,DePaul Blue Demons
+242,Northwestern Wildcats,757.7,250.2,off_target,-82.1,6.8,2024-08-25,4,4,DePaul Blue Demons
+243,Northwestern Wildcats,674.6,297.7,on_target,-57.0,-7.5,2024-08-25,4,4,DePaul Blue Demons
+244,Northwestern Wildcats,757.6,153.0,off_target,-82.1,35.8,2024-08-25,4,4,DePaul Blue Demons
+245,Northwestern Wildcats,637.3,431.6,on_target,-45.8,-47.5,2024-08-25,4,4,DePaul Blue Demons
+246,DePaul Blue Demons,674.5,60.1,off_target,-57.0,63.6,2024-08-25,4,4,Northwestern Wildcats
+247,DePaul Blue Demons,757.7,434.2,off_target,-82.1,-48.3,2024-08-25,4,4,Northwestern Wildcats
+248,DePaul Blue Demons,628.0,434.2,on_target,-43.0,-48.3,2024-08-25,4,4,Northwestern Wildcats
