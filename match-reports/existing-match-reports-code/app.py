@@ -137,6 +137,55 @@ def write_vulnerable_and_opportune(vulnerable, opportune):
     st.subheader(f"Opportunities for {selected_home_team}")
     st.dataframe(opportune)
 
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import gaussian_kde
+
+def goal_heatmap(df, title):
+    # Extract x and y from the dataframe
+    x = np.array(df['width'])
+    y = np.array(df['length'])
+
+    fig = plt.figure(figsize=(6, 3))
+    ax = fig.add_subplot(111)
+    ax.set_facecolor('black')  # This sets only the plot area to black
+
+    if len(x) > 2:  # Ensure more than one point
+            # Transpose the data to have each column represent a point
+            dataNew = np.column_stack([x, y])
+
+            nbins = 20
+
+            # Perform KDE with specified bandwidth
+            k = gaussian_kde(dataNew.T, bw_method=0.4)
+
+            # Define grid for KDE
+            xi, yi = np.mgrid[0:595:nbins*1j, 600:800:nbins*1j]
+            zi = k(np.vstack([xi.flatten(), yi.flatten()]))
+
+            # Plot the density with shading
+            plt.pcolormesh(xi, yi, zi.reshape(xi.shape), shading='gouraud', cmap='inferno')
+    elif len(x) == 1:  
+            plt.scatter(x, y, color='red')
+            title += ' (ONE SHOT)'
+    else:
+        title += ' (NO SHOTS)'
+
+    # Goal line coordinates
+    goalX = [85, 85, 510, 510]
+    goalY = [600, 740, 740, 600]
+
+    # Add goal lines
+    plt.plot(goalX, goalY, color='white')
+
+    # Set plot limits and aspect ratio
+    plt.xlim(0, 595)
+    plt.ylim(600, 800)
+    plt.gca().set_aspect('equal', adjustable='box')
+    plt.title(title)
+
+    return fig
+
 if __name__ == "__main__":
     name_to_pdfs = {
         "":"",
@@ -171,14 +220,19 @@ if __name__ == "__main__":
         global_vulnerable, global_opportune = get_global_data(data, selected_home_team, is_all_shots)
 
         st.header(f"{selected_home_team} vs. All Opponents")
-        write_vulnerable_and_opportune(global_vulnerable, global_opportune)
+        # write_vulnerable_and_opportune(global_vulnerable, global_opportune)
+        st.write(goal_heatmap(global_vulnerable, title=f'{selected_home_team} vulnerable'))
+        st.write(goal_heatmap(global_opportune, title=f'{selected_home_team} opportune'))
 
     # IF A SECOND TEAM IS PICKED TO ANALYZE
     if selected_home_team != "" and selected_opponent_team != "":
         local_vulnerable, local_opportune = get_local_data(data, selected_home_team, selected_opponent_team, is_all_shots)
 
         st.header(f"{selected_home_team} vs. {selected_opponent_team}")
-        write_vulnerable_and_opportune(local_vulnerable, local_opportune)
+        # write_vulnerable_and_opportune(local_vulnerable, local_opportune)
+
+        st.write(goal_heatmap(local_vulnerable, title=f'{selected_home_team} vulnerable'))
+        st.write(goal_heatmap(local_opportune, title=f'{selected_home_team} opportune'))
 
         home_goals = local_opportune['goal'].sum()
         away_goals = local_vulnerable['goal'].sum()
