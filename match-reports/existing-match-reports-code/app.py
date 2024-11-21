@@ -502,8 +502,7 @@ if __name__ == "__main__":
     "Ohio State Buckeyes": f"../ohio-st-2024/",
     "Penn State Nittany Lion": f"../penn-state-2024/",
     "Rutgers Scarlet Knights": f"../rutgers-2024/",
-    "UCLA Bruins": f"../ucla-2024/",
-    "Wisconsin Badgers": f"../wisconsin-2024/"
+    "UCLA Bruins": f"../ucla-2024/"
   }
 
   selected_team = st.selectbox("Select team to analyze", name_to_pdfs.keys())
