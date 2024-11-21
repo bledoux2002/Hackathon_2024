@@ -49,6 +49,9 @@ def goal_heatmap(df, title):
    else:
        title += ' (NO SHOTS)'
 
+   ax.set_xticks([])
+   ax.set_yticks([])
+
    return fig
 
 # def goal_heatmap(df, title):
@@ -107,7 +110,7 @@ def get_hot_spots(df):
     coords = np.column_stack((x, y))
 
     # Apply DBSCAN
-    epsilon = 0.5 # epsilon Maximum distance between two samples for one to be considered as in the neighborhood of the other
+    epsilon = 0.5  # Maximum distance between two samples for one to be considered as in the neighborhood of the other
     min_samples = 2  # Minimum number of samples in a neighborhood for a point to be considered as a core point
     dbscan = DBSCAN(eps=epsilon, min_samples=min_samples)
     labels = dbscan.fit_predict(coords)
@@ -131,7 +134,12 @@ def get_hot_spots(df):
     return center_x, center_y
 
 def goal_scatter(df, title):
+
     x, y = get_hot_spots(df)
+
+    # Extract x and y from the dataframe
+    x = (x / 595) * 200  # Scale x to 0-200
+    y = (y - 600) / 2  # Scale y from 600-800 to 0-100
 
     fig = plt.figure(figsize=(6, 3))
     ax = fig.add_subplot(111)
@@ -143,17 +151,20 @@ def goal_scatter(df, title):
         title += ' (NO HOT SPOTS)'
 
     # Goal line coordinates
-    goalX = [85, 85, 510, 510]
-    goalY = [600, 740, 740, 600]
+    goalX = [85/595 * 200, 85/595 * 200, 510/595 * 200, 510/595 * 200]
+    goalY = [(600-600)/2, (740-600)/2, (740-600)/2, (600-600)/2]  # Transform to 0-100
 
     # Add goal lines
     plt.plot(goalX, goalY, color='white')
 
     # Set plot limits and aspect ratio
-    plt.xlim(0, 595)
-    plt.ylim(600, 800)
+    plt.xlim(0, 200)
+    plt.ylim(0, 100)
     plt.gca().set_aspect('equal', adjustable='box')
     plt.title(title)
+
+    ax.set_xticks([])
+    ax.set_yticks([])
 
     return fig
 
