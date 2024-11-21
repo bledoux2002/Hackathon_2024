@@ -11,6 +11,7 @@
 3. Navigate to the root directory of the folder
 4. In a terminal, run <b>./docker-build-run.bash</b>
    1. If this fails, try typing <b>chmod 755 *.bash</b> in the same directory
+   2. On a Windows Machine, make sure either Git Bash or Windows Subsystem for Linux are installed and the command is run from one of those terminals.
 5. Once this completes, go to the localhost link it provides to you to play around with the application.
 
 #### Want to use your own examples?
