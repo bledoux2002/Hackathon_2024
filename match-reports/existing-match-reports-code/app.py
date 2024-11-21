@@ -92,18 +92,18 @@ if __name__ == "__main__":
         col1, col2 = st.columns(2)
 
         with col1:
-            st.pyplot(goal_heatmap(global_vulnerable, title=f'{selected_home_team} vulnerable'))
+            st.pyplot(goal_heatmap(global_vulnerable, title=f'{selected_home_team} Vulnerable Shot Locations (Heatmap)'))
 
         with col2:
-            st.pyplot(goal_scatter(global_vulnerable, title=f'{selected_home_team} vulnerable'))
+            st.pyplot(goal_scatter(global_vulnerable, title=f'{selected_home_team} Vulnerable Shot Locations (DBSCAN)'))
 
         col3, col4 = st.columns(2)
 
         with col3:
-            st.pyplot(goal_heatmap(global_opportune, title=f'{selected_home_team} opportune'))
+            st.pyplot(goal_heatmap(global_opportune, title=f'{selected_home_team} Opportune Shot Locations Hotspots'))
 
         with col4:
-            st.pyplot(goal_scatter(global_opportune, title=f'{selected_home_team} opportune'))
+            st.pyplot(goal_scatter(global_opportune, title=f'{selected_home_team} Opportune Shot Locations DBSCAN'))
 
     # IF A SECOND TEAM IS PICKED TO ANALYZE
     if selected_home_team != "" and selected_opponent_team != "" and selected_home_team != selected_opponent_team:
@@ -115,10 +115,10 @@ if __name__ == "__main__":
         col5, col6 = st.columns(2)
 
         with col5:
-            st.pyplot(goal_heatmap(local_vulnerable, title=f'{selected_home_team} vulnerable'))
+            st.pyplot(goal_heatmap(local_vulnerable, title=f'{selected_home_team} Vulnerable Shot Locations (Heatmap)'))
 
         with col6:
-            st.pyplot(goal_heatmap(local_opportune, title=f'{selected_home_team} opportune'))
+            st.pyplot(goal_heatmap(local_opportune, title=f'{selected_home_team} Opportune Shot Locations Hotspots'))
 
     
         # st.write(goal_scatter(local_vulnerable, title=f'{selected_home_team} vulnerable'))
