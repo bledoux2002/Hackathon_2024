@@ -502,14 +502,23 @@ def plot_kde(data):
 
     st.pyplot(fig)
 
+def get_global_data(data_copy, selected_home_team, is_all_shots):
+    if not is_all_shots:
+        data_copy = data_copy.loc[data_copy['goal'] == True]
+    vulnerable = data_copy.loc[data_copy['opponent_team_name'] == selected_home_team]
+    opportune = data_copy.loc[data_copy['team_name'] == selected_home_team]
+    return vulnerable, opportune
 
-
-
-
-
+def get_local_data(data_copy, selected_home_team, selected_away_team, is_all_shots):
+    if not is_all_shots:
+        data_copy = data_copy.loc[data_copy['goal'] == True]
+    vulnerable = data_copy.loc[(data_copy['opponent_team_name'] == selected_home_team) & (data_copy['team_name'] == selected_away_team)]
+    opportune = data_copy.loc[(data_copy['team_name'] == selected_home_team) & (data_copy['opponent_team_name'] == selected_away_team)]
+    return vulnerable, opportune
 
 if __name__ == "__main__":
-  name_to_pdfs = {
+    name_to_pdfs = {
+    "":"",
     "Northwestern Wildcats": f"../northwestern-2024",
     "Washington Huskies": f"../washington-2024/",
     "Indiana Hoosiers": f"../indiana-2024/",
@@ -520,21 +529,20 @@ if __name__ == "__main__":
     "Penn State Nittany Lion": f"../penn-state-2024/",
     "Rutgers Scarlet Knights": f"../rutgers-2024/",
     "UCLA Bruins": f"../ucla-2024/"
-  }
+    }
 
-  selected_home_team = st.selectbox("Select team to analyze", name_to_pdfs.keys(), key=0)
+    st.sidebar.header("Filter:")
+    selected_home_team = st.sidebar.selectbox("Select team to analyze", name_to_pdfs.keys(), key=0)
+    selected_opponent_team = st.sidebar.selectbox("[OPTIONAL] Select opponent", name_to_pdfs.keys(), key=1)
+    is_all_shots = st.sidebar.toggle("Only Goals / All Shots")
 
-  if st.button("Submit"):
-      teamname = selected_home_team
-      pdf_path = name_to_pdfs[teamname]
-      data = parse_shot_locs(pdf_path, teamname)
+    data = pd.read_csv("./master.csv")
+    data = data.iloc[:, 1:]
+    data = data.round(1)
+    data = data.drop_duplicates().reset_index(drop=True)
+    st.dataframe(data)
 
-      data = data.round(1)
-      data = data.drop_duplicates().reset_index(drop=True)
-      data.shape
-
-      st.dataframe(data)
-      
-      plot_shots(data)
-      plot_kde(data)
-
+    if selected_home_team != "":
+        global_vulnerable, global_opportune = get_global_data(data, selected_home_team, is_all_shots)
+        if selected_opponent_team != "":
+            local_vulnerable, local_opportune = get_local_data(data, selected_home_team, selected_opponent_team, is_all_shots)
