@@ -137,8 +137,7 @@ def write_vulnerable_and_opportune(vulnerable, opportune):
     st.subheader(f"Opportunities for {selected_home_team}")
     st.dataframe(opportune)
 
-import numpy as np
-import matplotlib.pyplot as plt
+
 from scipy.stats import gaussian_kde
 
 def goal_heatmap(df, title):
@@ -186,6 +185,69 @@ def goal_heatmap(df, title):
 
     return fig
 
+from sklearn.cluster import DBSCAN
+def get_hot_spots(df):
+    x = np.array(df['width'])
+    y = np.array(df['length'])
+
+    if len(x) < 1:
+        return np.array([]), np.array([])
+
+    # Combine x and y into a single array for clustering
+    coords = np.column_stack((x, y))
+
+    # Apply DBSCAN
+    epsilon = 0.5  # Maximum distance between two samples for one to be considered as in the neighborhood of the other
+    min_samples = 2  # Minimum number of samples in a neighborhood for a point to be considered as a core point
+    dbscan = DBSCAN(eps=epsilon, min_samples=min_samples)
+    labels = dbscan.fit_predict(coords)
+
+    # Extract cluster centers
+    cluster_centers = []
+    for cluster_id in set(labels):
+        if cluster_id == -1:  # Skip noise points
+            continue
+        cluster_points = coords[labels == cluster_id]
+        center = cluster_points.mean(axis=0)
+        cluster_centers.append(center)
+
+    # Separate x and y coordinates of the cluster centers
+    cluster_centers = np.array(cluster_centers)
+    if len(cluster_centers) < 1:
+        return np.array([]), np.array([])
+    center_x = cluster_centers[:, 0]
+    center_y = cluster_centers[:, 1]
+
+    return center_x, center_y
+
+def goal_scatter(df, title):
+
+    x, y = get_hot_spots(df)
+
+    fig = plt.figure(figsize=(6, 3))
+    ax = fig.add_subplot(111)
+    ax.set_facecolor('black')  # This sets only the plot area to black
+
+    if len(x) > 0:  
+            plt.scatter(x, y, color='red')
+    else:
+        title += ' (NO HOT SPOTS)'
+
+    # Goal line coordinates
+    goalX = [85, 85, 510, 510]
+    goalY = [600, 740, 740, 600]
+
+    # Add goal lines
+    plt.plot(goalX, goalY, color='white')
+
+    # Set plot limits and aspect ratio
+    plt.xlim(0, 595)
+    plt.ylim(600, 800)
+    plt.gca().set_aspect('equal', adjustable='box')
+    plt.title(title)
+
+    return fig
+
 if __name__ == "__main__":
     name_to_pdfs = {
         "":"",
@@ -212,8 +274,6 @@ if __name__ == "__main__":
     data = data.iloc[:, 1:]
     data = data.round(1)
     data = data.drop_duplicates().reset_index(drop=True)
-    st.header("Entire Dataset")
-    st.dataframe(data)
 
     # IF A SINGLE TEAM IS PICKED TO ANALYZE
     if selected_home_team != "" and not selected_opponent_team:
@@ -221,8 +281,21 @@ if __name__ == "__main__":
 
         st.header(f"{selected_home_team} vs. All Opponents")
         # write_vulnerable_and_opportune(global_vulnerable, global_opportune)
-        st.write(goal_heatmap(global_vulnerable, title=f'{selected_home_team} vulnerable'))
-        st.write(goal_heatmap(global_opportune, title=f'{selected_home_team} opportune'))
+        col1, col2 = st.columns(2)
+
+        with col1:
+            st.pyplot(goal_heatmap(global_vulnerable, title=f'{selected_home_team} vulnerable'))
+
+        with col2:
+            st.pyplot(goal_scatter(global_vulnerable, title=f'{selected_home_team} vulnerable'))
+
+        col3, col4 = st.columns(2)
+
+        with col3:
+            st.pyplot(goal_heatmap(global_opportune, title=f'{selected_home_team} opportune'))
+
+        with col4:
+            st.pyplot(goal_scatter(global_opportune, title=f'{selected_home_team} opportune'))
 
     # IF A SECOND TEAM IS PICKED TO ANALYZE
     if selected_home_team != "" and selected_opponent_team != "" and selected_home_team != selected_opponent_team:
@@ -231,8 +304,19 @@ if __name__ == "__main__":
         st.header(f"{selected_home_team} vs. {selected_opponent_team}")
         # write_vulnerable_and_opportune(local_vulnerable, local_opportune)
 
-        st.write(goal_heatmap(local_vulnerable, title=f'{selected_home_team} vulnerable'))
-        st.write(goal_heatmap(local_opportune, title=f'{selected_home_team} opportune'))
+        col5, col6 = st.columns(2)
+
+        with col5:
+            st.pyplot(goal_heatmap(local_vulnerable, title=f'{selected_home_team} vulnerable'))
+
+        with col6:
+            st.pyplot(goal_heatmap(local_opportune, title=f'{selected_home_team} opportune'))
+
+        # st.write(goal_scatter(local_vulnerable, title=f'{selected_home_team} vulnerable'))
+        # st.write(goal_scatter(local_opportune, title=f'{selected_home_team} opportune'))
+
+        st.dataframe(local_vulnerable)
+        st.dataframe(local_opportune)
 
         home_goals = local_opportune['goal'].sum()
         away_goals = local_vulnerable['goal'].sum()
@@ -240,3 +324,6 @@ if __name__ == "__main__":
         st.sidebar.subheader("Score:")
         st.sidebar.write(f"{selected_home_team}: {home_goals}")
         st.sidebar.write(f"{selected_opponent_team}: {away_goals}")
+
+    st.header("Entire Dataset")
+    st.dataframe(data)
