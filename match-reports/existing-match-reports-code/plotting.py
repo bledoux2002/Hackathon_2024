@@ -65,7 +65,7 @@ def get_hot_spots(df):
     coords = np.column_stack((x, y))
 
     # Apply DBSCAN
-    epsilon = 0.5  # Maximum distance between two samples for one to be considered as in the neighborhood of the other
+    epsilon = 0.5 # epsilon Maximum distance between two samples for one to be considered as in the neighborhood of the other
     min_samples = 2  # Minimum number of samples in a neighborhood for a point to be considered as a core point
     dbscan = DBSCAN(eps=epsilon, min_samples=min_samples)
     labels = dbscan.fit_predict(coords)
@@ -89,7 +89,6 @@ def get_hot_spots(df):
     return center_x, center_y
 
 def goal_scatter(df, title):
-
     x, y = get_hot_spots(df)
 
     fig = plt.figure(figsize=(6, 3))

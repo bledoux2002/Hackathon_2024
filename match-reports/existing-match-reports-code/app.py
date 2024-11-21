@@ -77,7 +77,8 @@ if __name__ == "__main__":
     is_all_shots = st.sidebar.toggle("Only Goals / All Shots")
 
     # GETTING THE DATA
-    data = pd.read_csv("./master.csv")
+    data = pd.read_csv("./master.csv") # WITHOUT DOCKER
+    #data = pd.read_csv("match-reports/existing-match-reports-code/master.csv") # WITH DOCKER
     data = data.iloc[:, 1:]
     data = data.round(1)
     data = data.drop_duplicates().reset_index(drop=True)
@@ -119,6 +120,7 @@ if __name__ == "__main__":
         with col6:
             st.pyplot(goal_heatmap(local_opportune, title=f'{selected_home_team} opportune'))
 
+    
         # st.write(goal_scatter(local_vulnerable, title=f'{selected_home_team} vulnerable'))
         # st.write(goal_scatter(local_opportune, title=f'{selected_home_team} opportune'))
 
