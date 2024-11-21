@@ -417,7 +417,6 @@ def parse_shot_locs(src_folder: str, team: str):
 
         # Concatenate results
         final = pd.concat([final, team_1_shot_pos, team_2_shot_pos])
-
     return final
 
 def plot_shots(data):
@@ -506,6 +505,9 @@ def plot_kde(data):
 
 
 
+
+
+
 if __name__ == "__main__":
   name_to_pdfs = {
     "Northwestern Wildcats": f"../northwestern-2024",
@@ -520,10 +522,10 @@ if __name__ == "__main__":
     "UCLA Bruins": f"../ucla-2024/"
   }
 
-  selected_team = st.selectbox("Select team to analyze", name_to_pdfs.keys())
+  selected_home_team = st.selectbox("Select team to analyze", name_to_pdfs.keys(), key=0)
 
   if st.button("Submit"):
-      teamname = selected_team
+      teamname = selected_home_team
       pdf_path = name_to_pdfs[teamname]
       data = parse_shot_locs(pdf_path, teamname)
 
@@ -531,6 +533,8 @@ if __name__ == "__main__":
       data = data.drop_duplicates().reset_index(drop=True)
       data.shape
 
+      st.dataframe(data)
+      
       plot_shots(data)
       plot_kde(data)
-  
+
